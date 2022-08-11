@@ -9,8 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function order() {
-        return $this->belongsTo(Order::class);
-    }
-    
+   public function cartItem() {
+        return $this->hasOne(CartItem::class);
+   }
 }

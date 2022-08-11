@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('price');
+            $table->integer('price');
             $table->string('product_image');
             $table->timestamps();
         });
@@ -30,5 +30,6 @@ return new class extends Migration
     public function down()
     {
         //
+        Schema::drop('products');
     }
 };

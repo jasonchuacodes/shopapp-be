@@ -15,10 +15,8 @@ return new class extends Migration
     {
         //
         Schema::create('carts', function(Blueprint $table) {
+            $table->id();
             $table->foreignId('customer_id');
-            $table->string('customer_name');
-            $table->foreignId('product_id');
-            $table->string('product_qty');
             $table->timestamps();
         });
     }
@@ -31,5 +29,6 @@ return new class extends Migration
     public function down()
     {
         //
+        Schema::drop('carts');
     }
 };

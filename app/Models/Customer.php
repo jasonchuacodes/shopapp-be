@@ -20,8 +20,8 @@ class Customer extends Model
 
     protected $guarded = [];
 
-    public function order() {
-        return $this->hasMany(Order::class);
+    public function carts() {
+        return $this->hasMany(Cart::class);
     }
-
+    
 }

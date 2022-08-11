@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductsController;
 use GuzzleHttp\Handler\Proxy;
@@ -31,3 +33,10 @@ Route::controller(ProductsController::class)->group(function () {
 Route::controller(CustomerController::class)->group(function() {
     Route::get('/customers/{id}', 'index');
 });
+
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart/{id}', 'index');
+});
+
+Route::get('/cart-item/{id}', [CartItemController::class, 'index']);
+Route::post('/cart-item/new', [CartItemController::class, 'store']);
